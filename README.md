@@ -7,14 +7,14 @@ Music plays an important role in all of our lives and has a profound cultural im
 
 When looking at potential datasets on Kaggle, we found the Top Spotify Tracks of 2018 dataset by Nadin Tamer. Spotify is one of the most popular music streaming platforms out there and our group uses it everyday. At the end of each year, Spotify compiles a playlist of the songs streamed most often over the course of that year. This dataset includes the top 100 most streamed songs. 
 
-As stated by Tamer, the audio features for each song were extracted using the Spotify Web API and the spotipy Python library. The .csv file includes: 
+As stated by Tamer, the audio features for each song were extracted using the Spotify Web API and the spotipy Python library. The .csv file includes the following columns:
 
 - Spotify URI for the song
 - Name of the song
 - Artist(s) of the song
 - Audio features for the song 
 
-The audio features include:
+Each audio feature has its own column and they are the following:
 
 1) Danceability
 2) Energy
