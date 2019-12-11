@@ -13144,17 +13144,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Music plays an important role in all of our lives and has a profound cultural impact within society as a whole. Music has been created, shared, and cherished in every corner of the globe since the beginning of human civilization. It has grown and evolved with time, spawning many different genres and styles, each having its own unique elements. Along with this, music has also birthed many of the world's most influential figures like Beethoven, The Beatles, Michael Jackson, Kanye West, and much more. When our group was brainstorming potential project ideas, we knew we wanted to choose a topic that we each deeply cared about. We wanted a topic that plays a big role in our lives everyday. In music, we found just that.</p>
-<p>When looking at potential datasets on Kaggle, we found a dataset called <a href="https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018?fbclid=IwAR0zWvqeFYax4c39Sw8E9vLId6aESGx0SOotYqXUuanQCDwTwtCPFPSkiEM">"Top Spotify Tracks of 2018"</a> by Nadin Tamer. Spotify is one of the most popular music streaming platforms in the world today and everyone in our group uses it daily. At the end of each year, Spotify compiles a playlist of the songs streamed most often over the course of that year. This dataset includes the top 100 most streamed songs for 2018. Although there was a similar dataset for 2019, it only included the top 50 songs for 2019. As a result, we decided to work with the 2018 dataset because it has twice as much data. Additionally, there was also a similar dataset for 2017, but we felt that was too long ago.</p>
+<p>Music plays an important role in all of our lives and has a profound cultural impact within society as a whole. Music has been created, shared, and cherished in every corner of the globe since the beginning of human civilization. It has grown and evolved with time, spawning many different genres and styles, each having its own unique elements. Along with this, music has also birthed many of the world's most influential figures like Beethoven, The Beatles, Michael Jackson, Kanye West, and much more. When our group was brainstorming potential project ideas, we knew we wanted to choose a topic that we each deeply cared about. Also, we did not want a commonly used subject like sports or crime. We wanted a topic that not only plays a big role in our daily lives, but also impacts society for the better. In music, we found just that.</p>
+<p>Our group decided to use <a href="https://www.kaggle.com/datasets">Kaggle</a> to find potential datasets because it has a well organized list of ready-made, dataset repositories. We eventually discovered a dataset called <a href="https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018?fbclid=IwAR0zWvqeFYax4c39Sw8E9vLId6aESGx0SOotYqXUuanQCDwTwtCPFPSkiEM">"Top Spotify Tracks of 2018"</a> by Nadin Tamer. We immediately realized that it had everything we wanted.</p>
+<p>Spotify is one of the most popular music streaming platforms in the world today and everyone in our group uses it daily. At the end of each year, Spotify compiles a playlist of the songs streamed most often over the course of that year. This dataset includes the top 100 most streamed songs for 2018. Although there was a similar dataset for 2019, it only included the top 50 songs for 2019. As a result, we decided to work with the 2018 dataset because it has twice as much data. Additionally, there was also a similar dataset for 2017, but we felt that was too long ago.</p>
 <p>As stated by Tamer, the audio features for each song were extracted using the Spotify Web API and the spotipy Python library. This dataset has 16 columns in total and they are the following:</p>
-<ul>
+<ol>
 <li>Spotify URI for the song</li>
 <li>Name of the song</li>
 <li>Artist(s) of the song</li>
-<li>Audio features for the song</li>
-</ul>
-<p>Each audio feature has its own column and they are the following:</p>
-<ol>
 <li>Danceability</li>
 <li>Energy</li>
 <li>Key</li>
@@ -13169,7 +13166,30 @@ div#notebook {
 <li>Duration</li>
 <li>Time Signature</li>
 </ol>
+<p>Columns 1-3 describe the general details of a song while columns 4-16 describe the audio features a song</p>
 <p>Upon analyzing this dataset, we were very interested in the danceability element of a song. We were surprised and intrigued at how a song could be measured with this criteria. We wanted to find out how the other audio elements of a song can affect its danceability. As a result, this leads us to the goal of our tutorial, prediciting the danceability of a song based on the rest of its audio features.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr size="10">
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Working-with-the-Data">Working with the Data<a class="anchor-link" href="#Working-with-the-Data">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this tutorial, we will be working with Python 3. All code was written in a Jupyter notebook.</p>
 
 </div>
 </div>
@@ -13183,14 +13203,16 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">f</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">f</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">model_selection</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">LabelEncoder</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 
