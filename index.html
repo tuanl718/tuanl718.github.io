@@ -13113,6 +13113,60 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Predicting-the-Danceability-of-a-Song-Based-on-its-Audio-Features">Predicting the Danceability of a Song Based on its Audio Features<a class="anchor-link" href="#Predicting-the-Danceability-of-a-Song-Based-on-its-Audio-Features">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CMSC 320 Final Tutorial - Fall 2019 Tuan Le, Joseph Johnson, Andrew Thai</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Music plays an important role in all of our lives and has a profound cultural impact within society as a whole. Music has been created, shared, and cherished in every corner of the globe since the beginning of human civilization. It has grown and evolved with time, spawning many different genres and styles, each having its own unique elements. Along with this, music has also birthed many of the world's most influential figures like Beethoven, The Beatles, Michael Jackson, Kanye West, and much more. When our group was brainstorming potential project ideas, we knew we wanted to choose a topic that we each deeply cared about. We wanted a topic that plays a big role in our lives everyday. In music, we found just that.</p>
+<p>When looking at potential datasets on Kaggle, we found the Top Spotify Tracks of 2018 dataset by Nadin Tamer. Spotify is one of the most popular music streaming platforms out there and our group uses it everyday. At the end of each year, Spotify compiles a playlist of the songs streamed most often over the course of that year. This dataset includes the top 100 most streamed songs.</p>
+<p>As stated by Tamer, the audio features for each song were extracted using the Spotify Web API and the spotipy Python library. The .csv file includes the following columns:</p>
+<ul>
+<li>Spotify URI for the song</li>
+<li>Name of the song</li>
+<li>Artist(s) of the song</li>
+<li>Audio features for the song</li>
+</ul>
+<p>Each audio feature has its own column and they are the following:</p>
+<ol>
+<li>Danceability</li>
+<li>Energy</li>
+<li>Key</li>
+<li>Loudness</li>
+<li>Mode</li>
+<li>Spechiness</li>
+<li>Acousticness</li>
+<li>Instrumentalness</li>
+<li>Liveness</li>
+<li>Valence</li>
+<li>Tempo</li>
+<li>Duration</li>
+<li>Time Signature</li>
+</ol>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
