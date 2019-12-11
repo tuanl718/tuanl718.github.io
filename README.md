@@ -1,6 +1,6 @@
 # Predicting the Danceability of a Song Based on its Audio Features
-# CMSC 320 Final Tutorial - Fall 2019
-# Tuan Le, Joseph Johnson, Andrew Thai
+CMSC 320 Final Tutorial - Fall 2019
+Tuan Le, Joseph Johnson, Andrew Thai
 
 # Introduction
 Music plays an important role in all of our lives and has a profound cultural impact within society as a whole. Music has been created, shared, and cherished in every corner of the globe since the beginning of human civilization. It has grown and evolved with time, spawning many different genres and styles, each having its own unique elements. Along with this, music has also birthed many of the world's most influential figures like Beethoven, The Beatles, Michael Jackson, Kanye West, and much more. When our group was brainstorming potential project ideas, we knew we wanted to choose a topic that we each deeply cared about. We wanted a topic that plays a big role in our lives everyday. In music, we found just that. 
